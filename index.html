@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sptime</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            color: #333333;
+            margin-top: 30px;
+        }
+        
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #cccccc;
+        }
+        
+        th {
+            background-color: #333333;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        td {
+            background-color: #f2f2f2;
+        }
+        
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        tr:nth-child(odd) td {
+            animation: fade-in 1s ease;
+        }
+        
+        tr:nth-child(even) td {
+            animation: fade-in 1s ease 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sptime</h1>
+    <table id="timeTable">
+        <tr>
+            <th>服务器</th>
+            <th>下次时间</th>
+        </tr>
+    </table>
+    <script src="./index.js"></script>
+</body>
+</html>
