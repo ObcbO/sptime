@@ -7,7 +7,7 @@ function sortTable(servers) {
         table.deleteRow(i);
     }
 
-    const sortedTimes = new Map([...servers.entries()].sort((a, b) => a[1] - b[1]));
+    const sortedTimes = new Map([...servers.entries()].sort((a, b) => getNextGiftTime(a[1]) - getNextGiftTime(b[1])));
     for (const [key, value] of sortedTimes) {
         const nextGiftTime = getNextGiftTime(value);
 
@@ -17,7 +17,7 @@ function sortTable(servers) {
         const cell3 = row.insertCell(2);
         cell1.innerHTML = key;
         cell2.innerHTML = new Date(nextGiftTime).toLocaleString();
-        cell3.innerHTML = `${(nextGiftTime - Date.now()) / 1000}s`;
+        cell3.innerHTML = `${((nextGiftTime - Date.now()) / 1000).toFixed(2)}s`;
     }
 }
 
@@ -60,7 +60,7 @@ async function init() {
 
 async function main() {
     const servers = await init();
-    setInterval(() => sortTable(servers), 1000);
+    setInterval(() => sortTable(servers), 500);
 }
 
 main();
