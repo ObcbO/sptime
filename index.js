@@ -1,5 +1,7 @@
 const table = document.getElementById("timeTable");
 
+const giftInterval = 20 * 60 * 1000;
+
 function sortTable(servers) {
     var rowCount = table.rows.length;
     // 保留第一行
@@ -22,7 +24,6 @@ function sortTable(servers) {
 }
 
 function getNextGiftTime(timestamp) {
-    const giftInterval = 20 * 60 * 1000; // 20分钟转化为毫秒
     const now = Date.now();
 
     let nextGiftTime = timestamp;
